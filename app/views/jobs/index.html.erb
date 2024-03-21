@@ -1,0 +1,31 @@
+<div class="py-5">
+  <div class="container py-5">
+    <div class="text-center">
+      <h2 class="fw-bold text-dark">All Jobs</h2>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+      <% @jobs.each do |job| %>
+        <div class="col">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+              <small class="text-opacity-50 m-0 p-0"><%= job.job_type %></small>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= job.job_title %></h5>
+              <p class="card-text"><%= job.job_description.to_plain_text.truncate(100) %></p>
+              <%= link_to "View Job", job_path(id: job.id), class: "btn btn-primary" %>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between bg-dark text-white">
+              <div class="price-container">
+                $<%= number_to_human(job.job_salary_from, :format => '%n%u', :units => {:thousand => 'k'}) %> - $<%= number_to_human(job.job_salary_to, :format => '%n%u', :units => {:thousand => 'k'}) %> / Year
+              </div>
+              <div class="icon-container d-flex align-items-center gap-2">
+                <i class="fa-solid fa-location-dot text-primary"></i><%= job.location %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_type: MyString
+  job_title: MyString
+  job_salary_from: MyString
+  job_salary_to: MyString
+  location: MyString
+
+two:
+  job_type: MyString
+  job_title: MyString
+  job_salary_from: MyString
+  job_salary_to: MyString
+  location: MyString
